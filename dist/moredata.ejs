@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Найдите работу или предложите её в IT-сфере с помощью нашего сайта. Мы предлагаем широкий выбор вакансий для различных специализаций.">
+    <meta name="keywords" content="IT, работа, вакансии, поиск работы, ITHunt, специалисты, программист, разработчик, тестировщик, веб-дизайнер">
+    <link rel="shortcut icon" href="/assets/icon.svg" type="image/x-icon">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="author" content="ITHunt">
+    <link rel="stylesheet" href="/style.css">
+    <title>ITHunt - Регистрация</title>
+</head>
+<body>
+<main>
+    <div class="container">
+        <div id="firstStap" class="login">
+            <div class="topLigin">
+                <svg onclick="window.history.back()" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24.5 12.5H3M3 12.5L13.5 23M3 12.5L13.5 2" stroke="#5412E0" stroke-width="3"/>
+                </svg>
+                <h1 class="reg">Регистрация</h1>
+                <svg style="opacity: 0" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24.5 12.5H3M3 12.5L13.5 23M3 12.5L13.5 2" stroke="#5412E0" stroke-width="3"/>
+                </svg>
+            </div>
+            <form id="myForm" action="/appendData" method="post">
+                <div id="firstScreen"  class="firstStap">
+                    <div class="inputs inputsReg">
+                        <p style="font-size: 13px; color: red" id="errorMessage"></p>
+                        <label for="lastname">Дата рождения</label>
+                        <input required minlength="10" min="10" max="10" maxlength="10" type="text" placeholder="o1.02.2002" name="date" id="date">
+                    </div>
+                    <div class="roles">
+                        <label for="creatorWork">
+                            <input class="select" type="radio" name="role" value="creatorWork" id="creatorWork" required>
+                            <span>Я работодатель</span>
+                        </label>
+                        <label for="worker">
+                            <input class="select" type="radio" name="role" value="worker" id="worker" required>
+                            <span>Я специалист</span>
+                        </label>
+                    </div>
+
+
+                    <input required type="checkbox" id="true" name="policy" value="true">
+                    <label style="font-size:14px;" for="privacyPolicy">Я ознакомил(ась)ся с <a href="/privacy-policy" style="font-size:14px; color: #5412E0;" target="_blank">политикой конфиденциальности</a></label>
+                    <button style="background: #009718;" type="submit" class="submitButton">Завершить регистрацию</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+<script src="/js/appendData.js">
+</script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Найдите работу или предложите её в IT-сфере с помощью нашего сайта. Мы предлагаем широкий выбор вакансий для различных специализаций.">
+    <meta name="keywords" content="IT, работа, вакансии, поиск работы, ITHunt, специалисты, программист, разработчик, тестировщик, веб-дизайнер">
+    <link rel="shortcut icon" href="/assets/icon.svg" type="image/x-icon">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="ITHunt">
+    <link rel="stylesheet" href="/style.css">
+    <script>
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById("password");
+            const passwordInput2 = document.getElementById("password2");
+            const toggleIcon = document.querySelector(".toggle-password");
+            const toggleIcon1 = document.querySelector(".toggle-password1");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                // Заменяем содержимое span на второй SVG
+                toggleIcon.innerHTML = `
+      <svg width="28" height="21" viewBox="0 0 28 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.5 7.9237C5.19637 12.7166 15.1983 19.4266 25.6351 7.9237" stroke="black" stroke-width="1.27027" stroke-linecap="round" />
+        <path d="M4.69884 11.4566L1.47692 15.8232" stroke="black" stroke-width="1.27027" stroke-linecap="round" />
+        <path d="M10.7047 14.1765L9.44407 19.4547" stroke="black" stroke-width="1.27027" stroke-linecap="round" />
+        <path d="M23.3792 10.9851L26.6011 15.3517" stroke="black" stroke-width="1.27027" stroke-linecap="round" />
+        <path d="M17.3733 13.7051L18.6339 18.9832" stroke="black" stroke-width="1.27027" stroke-linecap="round" />
+      </svg>
+    `;
+            } else {
+                passwordInput.type = "password";
+                // Заменяем содержимое span на первый SVG
+                toggleIcon.innerHTML = `
+      <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="12.9381" cy="9.82362" rx="4.39827" ry="5.65491" fill="#5412E0" />
+        <path d="M1 7.9386C4.5605 2.70257 14.1948 -4.62788 24.248 7.9386" stroke="black" stroke-width="1.25665" stroke-linecap="round" />
+      </svg>
+    `;
+            }
+        if (passwordInput2.type === "password") {
+            passwordInput2.type = "text";
+            // Заменяем содержимое span на второй SVG
+            toggleIcon1.innerHTML = `
+      <svg width="28" height="21" viewBox="0 0 28 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.5 7.9237C5.19637 12.7166 15.1983 19.4266 25.6351 7.9237" stroke="black" stroke-width="1.27027" stroke-linecap="round" />
+        <path d="M4.69884 11.4566L1.47692 15.8232" stroke="black" stroke-width="1.27027" stroke-linecap="round" />
+        <path d="M10.7047 14.1765L9.44407 19.4547" stroke="black" stroke-width="1.27027" stroke-linecap="round" />
+        <path d="M23.3792 10.9851L26.6011 15.3517" stroke="black" stroke-width="1.27027" stroke-linecap="round" />
+        <path d="M17.3733 13.7051L18.6339 18.9832" stroke="black" stroke-width="1.27027" stroke-linecap="round" />
+      </svg>
+    `;
+        } else {
+            passwordInput2.type = "password";
+            // Заменяем содержимое span на первый SVG
+            toggleIcon1.innerHTML = `
+      <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="12.9381" cy="9.82362" rx="4.39827" ry="5.65491" fill="#5412E0" />
+        <path d="M1 7.9386C4.5605 2.70257 14.1948 -4.62788 24.248 7.9386" stroke="black" stroke-width="1.25665" stroke-linecap="round" />
+      </svg>
+    `;
+        }
+        }
+
+    </script>
+    <script src="/js/jquery.js"></script>
+    <title>ITHunt - Регистрация</title>
+</head>
+<body>
+<main>
+    <div class="container">
+        <div id="firstStap" class="login">
+            <div class="topLigin">
+                <svg onclick="window.history.back()" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24.5 12.5H3M3 12.5L13.5 23M3 12.5L13.5 2" stroke="#5412E0" stroke-width="3"/>
+                </svg>
+                <h1 class="reg" id="red">Регистрация</h1>
+                <svg style="opacity: 0" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24.5 12.5H3M3 12.5L13.5 23M3 12.5L13.5 2" stroke="#5412E0" stroke-width="3"/>
+                </svg>
+            </div>
+            <form novalidate id="myForm" action="/singup" method="post">
+                <div id="firstScreen"  class="firstStap">
+                <div class="inputs inputsReg">
+                    <label for="lastname">Фамилия</label>
+                    <input required minlength="2" maxlength="39" type="text" placeholder="Павлов" name="lastname" id="lastname">
+                    <label for="lastname">Имя</label>
+                    <input required minlength="2" maxlength="39" type="text" placeholder="Павел" name="surname" id="surname">
+                    <label for="lastname">Дата рождения</label>
+                    <input required minlength="10" maxlength="10" type="text" placeholder="o1.02.2002" name="date" id="date">
+
+                </div>
+                <div class="roles">
+                    <label for="creatorWork">
+                        <input class="select" type="radio" name="role" value="creatorWork" id="creatorWork" required>
+                        <span>Я работодатель</span>
+                    </label>
+                    <label for="worker">
+                        <input class="select" type="radio" name="role" value="worker" id="worker" required>
+                        <span>Я специалист</span>
+                    </label>
+                </div>
+
+
+                <button type="button" id="nextOne" class="submitButton submitButtonReg">Продолжить</button>
+                </div>
+                <div id="secondStap" class="secondStap">
+                    <div class="inputs inputsReg">
+                        <label for="lastname">Укажите почту для привязки аккаунта</label>
+                        <br>
+                        <label for="lastname" style="font-size: 14px; color: #5412E0" id="errorEmail"></label>
+                        <input required minlength="5" maxlength="255" type="text" placeholder="Почта" name="email" id="email">
+                    <button type="button" id="nextOneGetCode" class="submitButton submitButtonReg emailVerefy">Получить код</button>
+                    </div>
+                    <label style="color:red;" for="input-box" id="notCode"></label>
+                    <div class="input-box">
+                        <input type="number" maxlength="6" id="codeVery" class="square-input">
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                        <div class="square"></div>
+                    </div>
+                </div>
+                <div id="theerdStap" class="threestap" style="margin-top: 35px">
+                    <p id="errorMessage" style="font-size: 14px;color: red;margin-bottom: 10px;"></p>
+                    <p style="margin-bottom: -10px; font-size: 15px;">Придумайте пароль</p>
+                    <div class="inputs">
+                        <div class="passForGlases">
+                            <input minlength="6" maxlength="20" required type="password" name="password1" id="password" placeholder="Пароль">
+                            <span class="toggle-password" onclick="togglePasswordVisibility()">
+                <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="12.9381" cy="9.82362" rx="4.39827" ry="5.65491" fill="#5412E0"/>
+<path d="M1 7.9386C4.5605 2.70257 14.1948 -4.62788 24.248 7.9386" stroke="black" stroke-width="1.25665" stroke-linecap="round"/>
+</svg>
+</span>
+                        </div>
+                    </div>
+                    <p id="password-error-message" style=" margin-top:10px; color: #5412E0;font-size: 13px;font-style: normal;font-weight: 400;line-height: 141.4%; /* 18.382px */letter-spacing: 0.065px;">Используйте заглавные и латинские(A-z) символы<br>
+                        Минимальная длина 6 символов</p>
+                    <div class="inputs">
+                        <div class="passForGlases">
+                            <input minlength="6" maxlength="20" required type="password" name="password2" id="password2" placeholder="Пароль">
+                            <span class="toggle-password1" onclick="togglePasswordVisibility()">
+                <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="12.9381" cy="9.82362" rx="4.39827" ry="5.65491" fill="#5412E0"/>
+<path d="M1 7.9386C4.5605 2.70257 14.1948 -4.62788 24.248 7.9386" stroke="black" stroke-width="1.25665" stroke-linecap="round"/>
+</svg>
+</span>
+
+
+                        </div>
+                    </div>
+                    <input required type="checkbox" id="true" name="policy" value="true">
+                    <label style="font-size:14px;" for="privacyPolicy">Я ознакомил(ась)ся с <a href="/privacy-policy" style="font-size:14px; color: #5412E0;" target="_blank">политикой конфиденциальности</a></label>
+                    <button style="background: #009718;" id="last" type="submit" class="submitButton">Завершить регистрацию</button>
+                </div>
+            </form>
+            <a class="regToGoogle" href="/google">
+                <div class="signToGoogle">
+                    <button class="toGoogle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_1002_3381)">
+                                <path d="M12.2449 9.81821V14.4655H18.8349C18.5456 15.9601 17.6772 17.2256 16.3748 18.0765L20.3488 21.0983C22.6642 19.0038 24 15.9274 24 12.2729C24 11.422 23.9221 10.6037 23.7774 9.81834L12.2449 9.81821Z" fill="#4285F4"/>
+                                <path d="M5.3825 14.2841L4.48621 14.9565L1.3136 17.3783C3.32845 21.2946 7.45803 24.0001 12.2447 24.0001C15.5507 24.0001 18.3225 22.931 20.3485 21.0983L16.3745 18.0765C15.2836 18.7965 13.8921 19.2329 12.2447 19.2329C9.06099 19.2329 6.35605 17.1274 5.38751 14.291L5.3825 14.2841Z" fill="#34A853"/>
+                                <path d="M1.31358 6.62186C0.478739 8.23634 0.00012207 10.0582 0.00012207 12C0.00012207 13.9418 0.478739 15.7637 1.31358 17.3781C1.31358 17.389 5.38788 14.2799 5.38788 14.2799C5.14298 13.5599 4.99823 12.7963 4.99823 11.9999C4.99823 11.2034 5.14298 10.4398 5.38788 9.71981L1.31358 6.62186Z" fill="#FBBC05"/>
+                                <path d="M12.2449 4.77821C14.0483 4.77821 15.6512 5.3891 16.9314 6.56731L20.4379 3.13097C18.3117 1.18917 15.5511 0 12.2449 0C7.45829 0 3.32845 2.69456 1.3136 6.62186L5.38778 9.72007C6.35619 6.88366 9.06124 4.77821 12.2449 4.77821Z" fill="#EA4335"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_1002_3381">
+                                    <rect width="24" height="24" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>Регестрация при помощи Google</button>
+                </div>
+            </a>
+        </div>
+    </div>
+</main>
+<script src="/js/regist.js"></script>
+</body>
+</html>

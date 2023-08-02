@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Найдите работу или предложите её в IT-сфере с помощью нашего сайта. Мы предлагаем широкий выбор вакансий для различных специализаций.">
+    <meta name="keywords" content="IT, работа, вакансии, поиск работы, ITHunt, специалисты, программист, разработчик, тестировщик, веб-дизайнер">
+    <meta name="robots" content="index, follow">
+    <link rel="shortcut icon" href="/assets/icon.svg" type="image/x-icon">
+    <meta name="author" content="ITHunt">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/js/jquery.js"></script>
+    <title>ITHunt - поиск работы для IT-специалистов</title>
+</head>
+<body>
+<%- include('./header.ejs', { isLoggedIn, username}) %>
+
+<main>
+    <section class="welcome">
+        <div class="content">
+            <div class="left">
+                <h1 class="textHello">Добро пожаловать в ITHunt</h1>
+                <p class="description">Мы являемся надежным партнером для тех, кто стремится найти идеальную работу в IT-сфере, а также для компаний, которым необходимы высококвалифицированные профессионалы в этой области.</p>
+                <div class="contentBottom">
+                    <div class="serching">
+                        <input class="search" placeholder="Кто вам нужен?" type="search" name="search" id="searchID">
+                        <div class="exampleInput">
+                            <p>Пример: <b>FrontEnd разработчик</b></p>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <a href="/vacancies" rel="nofollow">Я ищу работу</a>
+                        <a href="/specialists" rel="nofollow">Я работодатель</a>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="logo">
+                    <svg width="235" height="281" viewBox="0 0 235 281" fill="none" xmlns="http://www.w3.org/2000/svg" alt="ITHunt Logo">
+                        <path d="M9.2971 276.885C0.317044 270.656 -1.91333 258.327 4.31542 249.347L110.43 96.3607L142.949 118.917L36.8351 271.903C30.6063 280.883 18.2772 283.113 9.2971 276.885Z" fill="white"/>
+                        <path d="M235 94.2979C235 103.851 227.255 111.596 217.702 111.596H169.704V260.296C169.704 271.178 160.882 280 150 280C139.118 280 130.296 271.178 130.296 260.296V111.596H82.2979C72.7445 111.596 65 103.851 65 94.2979C65 84.7445 72.7445 77 82.2979 77H217.702C227.255 77 235 84.7445 235 94.2979Z" fill="white"/>
+                        <circle cx="149.774" cy="30.8418" r="30.7081" transform="rotate(90.25 149.774 30.8418)" fill="white"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="nowsecond">
+        <div class="leftsecond">
+            <h2 class="title">Недавние вакансии</h2>
+            <p class="descripe">Это список самых свежих вакансий. Мы регулярно обновляем список доступных позиций, чтобы предложить вам широкий выбор возможностей. С нашей удобной системой поиска вы можете настроить поиск работы в соответствии с вашими интересами, навыками и предпочтениями</p>
+            <div class="buttons">
+                <button>
+                    <a href="#" title="Создать вакансию" rel="nofollow">Создать вакансию</a>
+                </button>
+                <a href="vacancies" title="Смотреть вакансии" rel="nofollow">Смотреть вакансии</a>
+            </div>
+        </div>
+        <div class="vakans">
+            <div class="vakansia">
+                <a href="">
+                    <div class="top">
+                        <h3 class="titleV">FrontEnd Разработчик</h3>
+                        <h3 class="price">200 000₽</h3>
+                    </div>
+                </a>
+                <div class="expiriens">
+                    <p class="expirienstext">Опыт работы: 3 года</p>
+                </div>
+                <ul class="stack">
+                    <li>HTML</li>
+                    <li>JQuery</li>
+                    <li>CSS</li>
+                    <li>GIT</li>
+                    <li>SCSS</li>
+                    <li>Vue/VueRouter/Vue-cli</li>
+                    <li>JavaSript</li>
+                </ul>
+            </div>
+            <div class="vakansia">
+                <a href="">
+                    <div class="top">
+                        <h3 class="titleV">FrontEnd Разработчик</h3>
+                        <h3 class="price">200 000₽</h3>
+                    </div>
+                </a>
+                <div class="expiriens">
+                    <p class="expirienstext">Опыт работы: 3 года</p>
+                </div>
+                <ul class="stack">
+                    <li>HTML</li>
+                    <li>JQuery</li>
+                    <li>CSS</li>
+                    <li>GIT</li>
+                    <li>SCSS</li>
+                    <li>Vue/VueRouter/Vue-cli</li>
+                    <li>JavaSript</li>
+                </ul>
+            </div>
+            <div class="vakansia">
+                <a href="">
+                    <div class="top">
+                        <h3 class="titleV">FrontEnd Разработчик</h3>
+                        <h3 class="price">200 000₽</h3>
+                    </div>
+                </a>
+                <div class="expiriens">
+                    <p class="expirienstext">Опыт работы: 3 года</p>
+                </div>
+                <ul class="stack">
+                    <li>HTML</li>
+                    <li>JQuery</li>
+                    <li>CSS</li>
+                    <li>GIT</li>
+                    <li>SCSS</li>
+                    <li>Vue/VueRouter/Vue-cli</li>
+                    <li>JavaSript</li>
+                </ul>
+            </div>
+            <div class="vakansia">
+                <a href="">
+                    <div class="top">
+                        <h3 class="titleV">FrontEnd Разработчик</h3>
+                        <h3 class="price">200 000₽</h3>
+                    </div>
+                </a>
+                <div class="expiriens">
+                    <p class="expirienstext">Опыт работы: 3 года</p>
+                </div>
+                <ul class="stack">
+                    <li>HTML</li>
+                    <li>JQuery</li>
+                    <li>CSS</li>
+                    <li>GIT</li>
+                    <li>SCSS</li>
+                    <li>Vue/VueRouter/Vue-cli</li>
+                    <li>JavaSript</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="shtat">
+        <h2>У нас есть все специалисты</h2>
+        <ul class="list">
+            <li>
+                <img src="/assets/pictures/analytics.webp" alt="Аналитик">
+                <h2>Аналитик</h2>
+            </li>
+            <li>
+                <img src="/assets/pictures/seo.webp" alt="SEO-специалист">
+                <h2>SEO-специалист</h2>
+            </li>
+            <li>
+                <img src="/assets/pictures/disigner.webp" alt="Графический дизайнер">
+                <h2>Графический дизайнер</h2>
+            </li>
+            <li><img src="/assets/pictures/sysadm.webp" alt="Системный администратор"><h2 title="Системный администратор">Систем. админ</h2></li>
+            <li><img src="/assets/pictures/database.webp" alt="Администратор БД"><h2>Администратор БД</h2></li>
+            <li><img src="/assets/pictures/hr.webp" alt="HR"><h2>HR</h2></li>
+            <li><img src="/assets/pictures/frontend.webp" alt="FrontEnd"><h2>FrontEnd</h2></li>
+            <li><img src="/assets/pictures/meneger.webp" alt="Менеджер продаж"><h2>Менеджер продаж</h2></li>
+            <li><img src="/assets/pictures/tester.webp" alt="Тестировщик"><h2>Тестировщик</h2></li>
+            <li><img src="/assets/pictures/product.webp" alt="Продукт менеджер"><h2>Продукт менеджер</h2></li>
+            <li><img src="/assets/pictures/backend.webp" alt="BackEnd"><h2>BackEnd</h2></li>
+            <li><img src="/assets/pictures/fullstack.webp" alt="FullSatck"><h2>FullSatck</h2></li>
+            <li><img src="/assets/pictures/teamleader.webp" alt="TeamLeader"><h2>TeamLeader</h2></li>
+            <li><img src="/assets/pictures/Верстальщик.webp" alt="Верстальщик"><h2>Верстальщик</h2></li>
+            <li><img src="/assets/pictures/soft.webp" alt="Инфобез-специалист"><h2 title="Специалист информационной беопастности">Инфобез-специалист</h2></li>
+            <li><img src="/assets/pictures/web-disigner.webp" alt="Веб-дизайнер"><h2>Веб-дизайнер</h2></li>
+            <li><img src="/assets/pictures/marketolog.webp" alt="Маркетолог"><h2>Маркетолог</h2></li>
+            <li><img src="/assets/pictures/copy.webp" alt="Копирайтер"><h2>Копирайтер</h2></li>
+            <li id="openModal"><img src="/assets/pictures/plus.webp" alt="Добавить еще"><a>Кого-то забыли?</a></li>
+        </ul>
+        <div class="modal" style="display:none;">
+
+        <div id="myModal" class="modalWind">
+            <div class="modalText">
+                <h4>Нет нужной специальности?</h4>
+                <div class="textInfoModal">
+                    <div class="textHelp">
+                        <div class="green"></div>
+                        <p>Специальность не должна повторяться с теми что уже находятся на платформе</p>
+                    </div>
+                    <div class="textHelp">
+                        <div class="green"></div>
+                        <p>Специальность должна быть связана с разработкой сайта или поддержанием его жизни</p>
+                    </div>
+                </div>
+            </div>
+                <input type="text" id="specializationInput" placeholder="Название">
+            <div class="modal-content">
+                <button id="backBtn">Назад</button>
+                <button id="submitBtn">Отправить</button>
+            </div>
+        </div>
+        </div>
+        <p class="bottomList">У нас есть все специалисты необходимы для работы сайтами, начиная от создания и до поддержания его жизнедеятельности.</p>
+    </div>
+    <div class="best">
+        <h2>Приемущества данного сервиса</h2>
+        <div class="all">
+            <div class="element">
+            <h3>Узкая направленность</h3>
+                <img src="/assets/pictures/one.jpg" alt="Узкая направленность">
+                <div class="open-close"></div>
+                <p>Наша платформа предоставляет самые популярные вакансии для веб-разработчиков, обеспечивая высокий шанс найти именно ту работу, которую вы ищете в этой сфере. Мы специализируемся исключительно на веб-разработке, что делает нас лучшим выбором для специалистов этой области.</p>
+            </div>
+            <div class="element">
+                <h3>Удобный графический интерфейс сайта</h3>
+                <img src="/assets/pictures/toptwo.jpg" alt="Удобный графический интерфейс сайта">
+                <div class="open-close"></div>
+                <p>Наши талантливые дизайнеры инвестировали много времени и энергии в разработку удобного графического интерфейса нашего сайта. Мы предоставляем интуитивно понятные элементы управления, удобную навигацию и современный дизайн, чтобы обеспечить наилучший опыт пользования нашей платформой. Вы сможете легко находить вакансии, создавать профиль и взаимодействовать с работодателями, не испытывая никаких сложностей</p>
+            </div>
+            <div class="element">
+                <h3>Равные условия</h3>
+                <img src="/assets/pictures/threetop.jpg" alt="Равные условия">
+                <div class="open-close"></div>
+                <p>Мы гарантируем, что все участники нашей платформы имеют равные возможности при поиске работы. Независимо от вашего рейтинга или опыта, каждый имеет равный доступ к вакансиям и возможность выделить свои навыки и потенциал. Мы стремимся к справедливому и прозрачному процессу отбора, где ваше профессиональное качество является ключевым фактором</p>
+            </div>
+            <div class="element">
+                <h3>Постоянная поддержка</h3>
+                <img src="/assets/pictures/onetwo.jpg" alt="Удобный графический интерфейс сайта">
+                <div class="open-close"></div>
+            <p>Мы понимаем, что в процессе поиска работы могут возникать вопросы и затруднения. Поэтому мы предлагаем непрерывную поддержку нашим пользователям. Наша команда экспертов всегда готова ответить на ваши вопросы и предоставить необходимую помощь в кратчайшие сроки. Мы ценим ваше время и стремимся обеспечить гладкое и безопасное пользование нашей платформой.</p>
+            </div>
+            <div class="element">
+                <h3>Постоянная работа или разовая</h3>
+                <img src="/assets/pictures/two.jpg" alt="Узкая направленность">
+                <div class="open-close"></div>
+                <p>Независимо от того, нужен ли вам сотрудник на постоянную основу или для разового проекта, IT Hunt предоставляет вам все необходимые инструменты и ресурсы для успешного подбора персонала. Мы предлагаем удобный поиск вакансий, функциональные фильтры и возможность просмотра подробной информации о кандидатах</p>
+                 </div>
+            <div class="element">
+                <h3>У нас все бесплатно</h3>
+                <img src="/assets/pictures/three.jpg" alt="Удобный графический интерфейс сайта">
+                <div class="open-close"></div>
+            <p>Мы полностью осознаем, что каждая компания и каждый профессионал имеют свои уникальные потребности и бюджетные ограничения. Поэтому в нашем начальном этапе работы мы решили предоставить бесплатный период использования нашей биржи. Это даст возможность всем желающим воспользоваться всеми нашими инструментами и ресурсами для успешного подбора персонала без дополнительных затрат</p>
+            </div>
+        </div>
+    </div>
+    <div class="money">
+        <h2>Как начать зарабатывать на профессии мечты с IT Hunt</h2>
+        <div class="allBeBack">
+        <div class="first">
+            <div class="picAndCell">
+                <img src="/assets/pictures/Создай%20профиль.jpg" alt="Картинка - создай профиль">
+                <h3>Создай профиль</h3>
+            </div>
+            <p>Твой профиль является визитной карточкой, которая представит тебя потенциальным работодателям или клиентам. Убедись, что профиль ясно отражает твои навыки, опыт и образование в области IT</p>
+        </div>
+        <div class="first">
+            <div class="picAndCell">
+                <img src="/assets/pictures/Найди%20вакансию.jpg" alt="Картинка - создай профиль">
+                <h3>Найди вакансию</h3>
+            </div>
+            <p>После заполнения профиля начни искать вакансии или проекты, которые соответствуют твоим навыкам и интересам. IT Hunt предоставляет широкий спектр возможностей в области IT, от фриланс-проектов до полноценной постоянной работы. </p>
+        </div>
+        <div class="first">
+            <div class="picAndCell">
+                <img src="/assets/pictures/Не%20сдавайся.jpg" alt="Картинка - создай профиль">
+                <h3>Не сдавайся</h3>
+            </div>
+            <p>Самые успешные люди сталкиваются с неудачами на своем пути, но они не прекращают стремиться к своим целям. Будьте настойчивыми, учись на своих ошибках и продолжай двигаться вперед. В конечном итоге, твоя преданность и упорство приведут к желаемым результатам.</p>
+        </div>
+        </div>
+        <a class="profile" href="/login">
+            <button class="join lazzy">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 1V17" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M17 9L1 9" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Присоединиться
+            </button>
+        </a>
+    </div>
+    <div class="quetion">
+            <h2>Часто задаваемые вопросы</h2>
+            <div class="block">
+            <div class="picure">
+                <div class="centerPic">
+                    <img src="/assets/pictures/знак%20вопроса.png" alt="Вот вопросы:" loading="lazy">
+                </div>
+            </div>
+            <div class="vopross">
+                <div class="response">
+                    <div class="text">
+                        <svg class="wow" width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.4174 0L0.417419 15L0.417419 -6.55671e-07L15.4174 0Z" fill="#D9D9D9"/>
+                        </svg>
+                        <p>Как сменить профиль с Работодатель на Исполнитель или наоборот?</p>
+                    </div>
+                <div class="request">
+                    <p>Наши услуги включают размещение вакансий, поиск и подбор IT-специалистов, проведение технических собеседований и оценку навыков, чтобы убедиться, что каждый кандидат соответствует требованиям и ожиданиям наших клиентов. Мы тщательно анализируем рынок труда и работаем на</p>
+                </div>
+                     </div>
+                <div class="response">
+                    <div class="text">
+                        <svg class="wow" width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.4174 0L0.417419 15L0.417419 -6.55671e-07L15.4174 0Z" fill="#D9D9D9"/>
+                        </svg>
+                        <p>Как сменить профиль с Работодатель на Исполнитель или наоборот?</p>
+                    </div>
+                    <div class="request">
+                        <p>Наши услуги включают размещение вакансий, поиск и подбор IT-специалистов, проведение технических собеседований и оценку навыков, чтобы убедиться, что каждый кандидат соответствует требованиям и ожиданиям наших клиентов. Мы тщательно анализируем рынок труда и работаем на</p>
+                    </div>
+                </div>
+                <div class="response">
+                    <div class="text">
+                        <svg class="wow" width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.4174 0L0.417419 15L0.417419 -6.55671e-07L15.4174 0Z" fill="#D9D9D9"/>
+                        </svg>
+                        <p>Как сменить профиль с Работодатель на Исполнитель или наоборот?</p>
+                    </div>
+                    <div class="request">
+                        <p>Наши услуги включают размещение вакансий, поиск и подбор IT-специалистов, проведение технических собеседований и оценку навыков, чтобы убедиться, что каждый кандидат соответствует требованиям и ожиданиям наших клиентов. Мы тщательно анализируем рынок труда и работаем на</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+</main>
+
+<%- include('./footer.ejs') %>
+<script src="/js/header.js"></script>
+</body>
+</html>
