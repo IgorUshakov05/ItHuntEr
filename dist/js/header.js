@@ -15,7 +15,7 @@ $(document).ready(function() {
     $('.open-close').on('click', function() {
         var paragraph = $(this).siblings('p');
 
-        console.log(this)
+
         $(this).toggleClass('rotate')
          paragraph.toggleClass('some-class');
     });

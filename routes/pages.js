@@ -2,9 +2,12 @@ const express = require('express');
 const exceptionHandler = require("../Exception");
 const path = require("path");
 const isLoggedIn = require('../AccessForAuth')
+const {header} = require('./headerInfo')
+const tokenModel = require("../models/refreshTokens");
 const router = express.Router();
 router.get('/', (req, res) => {
-    res.render('index', { isLoggedIn: false, username: 'Ушаков Игорь' });
+    const userData = header(req.session)
+    res.render('index', userData);
 });
 router.get('/myProfile', isLoggedIn,(req,res) => {
     res.render('myprofile')
@@ -22,40 +25,51 @@ router.get('/more', (req,res) => {
 })
 
 router.get('/user/:id', (req,res) => {
-    res.render('userprofile', { isLoggedIn: false, username: 'Ушаков Игорь', user: req.params.id })
+    const userData = header(req.session)
+    res.render('userprofile', userData)
 })
 router.get('/specialists', (req, res) => {
-    res.render('specialist', { isLoggedIn: false, username: 'Ушаков Игорь' });
+    const userData = header(req.session)
+    res.render('specialist', userData);
 });
 
-router.get('/login', (req,res) => {
+router.get('/login', async (req,res) => {
+    if (typeof req.session.refresh === 'string') {
+        const foundToken = await tokenModel.findOneAndDelete({ token: req.session.refresh });
+        console.log(foundToken)
+    }
     req.logout()
     req.session = null;
-
     // Удаляем куки из ответа (если используем cookie-session)
     res.clearCookie('session');
     res.render('login')
 })
 
 router.get('/vacancies', (req, res) => {
-    res.render('vacancies', { isLoggedIn: false, username: "none" });
+    const userData = header(req.session)
+    res.render('vacancies', userData);
 });
 
 router.get('/chats', isLoggedIn,(req, res) => {
-    res.render('chats', { isLoggedIn: false, username: 'Ушаков Игорь' });
+    const userData = header(req.session)
+    res.render('chats', userData);
 });
 
 router.get('/fast-work', (req, res) => {
-    res.render('fast-work', { isLoggedIn: false, username: 'Ушаков Игорь' });
+    const userData = header(req.session)
+    res.render('fast-work', userData);
 });
 
-router.get('/registration', (req, res) => {
+router.get('/registration', async(req, res) => {
+    if (typeof req.session.refresh === 'string') {
+        const foundToken = await tokenModel.findOneAndDelete({ token: req.session.refresh });
+        console.log(foundToken)
+    }
     req.logout()
     req.session = null;
-
     // Удаляем куки из ответа (если используем cookie-session)
     res.clearCookie('session');
-    res.render('registration');
+    await res.render('registration');
 });
 router.get('/robots.txt', (req, res) => {
     const robotsFilePath = path.join(__dirname, '../robots.txt');

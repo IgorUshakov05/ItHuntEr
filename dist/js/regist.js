@@ -136,7 +136,6 @@ buttonGetCode.addEventListener('click', ()=> {
         .then(response => response.json()) // Заменяем .json() на .text()
         .then(data => {
             // Выводим текст ответа сервера для отладки
-            console.log(data);
             if (data.message) {
                 buttonGetCode.style.display = "none"
                 setTimeout(() => {
@@ -147,13 +146,11 @@ buttonGetCode.addEventListener('click', ()=> {
         })
         .catch(error => {
             // Обработка ошибок, если что-то пошло не так
-            console.error('Письмо уже отправлено:', error);
         });
 })
 const codeVery = document.getElementById('codeVery');
 codeVery.addEventListener('input', (event) => {
     let target = codeVery.value.trim();
-    console.log(target);
     if (target.length === 6) {
         let data = {
             code: target,
@@ -166,7 +163,6 @@ codeVery.addEventListener('input', (event) => {
             },
             body: JSON.stringify(data)
         }).then((response) => {
-            console.log(response.status)
             if (response.status === 200) {
                 document.getElementById('secondStap').style.display = 'none'
                 document.getElementById('theerdStap').style.display = 'block'
@@ -238,8 +234,6 @@ form.addEventListener('submit', (event) => {
         formDataObject[key] = value;
     });
 
-    console.log(formDataObject);
-
     fetch('/signup', {
         method: 'POST',
         headers: {
@@ -248,7 +242,7 @@ form.addEventListener('submit', (event) => {
         body: JSON.stringify(formDataObject)
     })
         .then(response => {
-            console.log(response.status, " - статус");
+
             if (response.ok && response.status === 200) {
                 window.location.href = '/';
                 return true

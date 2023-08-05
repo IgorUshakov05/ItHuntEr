@@ -64,7 +64,7 @@ form.addEventListener('submit', (event) => {
         formDataObject[key] = value;
     });
 
-    console.log(formDataObject);
+
 
     fetch('/appendData', {
         method: 'POST',
@@ -74,7 +74,7 @@ form.addEventListener('submit', (event) => {
         body: JSON.stringify(formDataObject)
     })
         .then(response => {
-            console.log(response.status, " - статус");
+
             if (response.ok && response.status === 200) {
                 window.location.href = '/';
                 return true

@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const LoginUser = require('../models/loginUser'); // вход
 const User = require('../models/registrationUser'); // регистрация
 const emailverefy = require('../models/email');
+const Token = require('../models/refreshTokens')
 const nodemailer = require('nodemailer');
 const { body, validationResult } = require('express-validator');
 const Exception = require('../Exception');
@@ -24,20 +26,50 @@ const transporter = nodemailer.createTransport({
 
 
 class Auth {
-    login(req, res) {
-        const errors = validationResult(req);
+    async login(req, res) {
+        let clientIP = req.ip;
+        const errors = await validationResult(req);
         if (!errors.isEmpty()) {
             // Если есть ошибки валидации, возвращаем ошибку клиенту
             return Exception.NotValidUserNotFaundLogin(res, 'Введены некорректные данные');
         }
         // Если данные прошли валидацию, выполняем аутентификацию
-        const { email, password } = req.body;
-        // Ваш код для аутентификации пользователя
-        console.log(email, password);
-        res.status(200).redirect('/');
-    }
+        const { email, password } = await req.body;
 
+
+        const user = await  User.findOne({email})
+        if (!user) {
+            return Exception.NotValidUserNotFaundLogin(res, 'Пользывателя не найдено');
+        }
+        else {
+            console.log(user)
+        console.log(email, password);
+            bcrypt.compare(password, user.password, (err, isMatch) => {
+                if (err) {
+                    // Обработка ошибки при сравнении
+                    console.error(err);
+                    return Exception.NotValidUserNotFaundLogin(res, 'Ошибка сервера');
+                }
+
+                if (isMatch) {
+                    const accessToken = jwt.sign({ id:user.id, role:user.role }, process.env.ACCESS, { expiresIn: '1m' });
+                    const refreshToken = jwt.sign({ id:user.id, email:user.email, password: user.password, ip: clientIP }, process.env.REFRESH, {
+                        expiresIn: '30d',
+                    });
+
+                    req.session.access = accessToken;
+                    req.session.refresh = refreshToken;
+                    res.status(200).redirect('/');
+                } else {
+                    // Неверный пароль
+                    return Exception.NotValidUserNotFaundLogin(res, 'Неверный пароль');
+                }
+            });
+
+        }
+    }
     async registration(req, res) {
+        const clientIP = req.ip;
         const errors = validationResult(req);
         console.log(req.body);
         const { lastname, surname, date, role, email, password1, policy } = req.body;
@@ -59,6 +91,18 @@ class Auth {
                     const saltRounds = 10;
                     let id = generaterId()
                     const hashedPassword = await bcrypt.hash(password1, saltRounds);
+
+                    // Создание JWT-токенов для access и refresh
+
+                    const accessToken = jwt.sign({ id, role: req.body.role }, process.env.ACCESS, { expiresIn: '1m' });
+                    const refreshToken = jwt.sign({ id, email, password: hashedPassword, ip: clientIP }, process.env.REFRESH, {
+                        expiresIn: '30d',
+                    });
+
+                    req.session.access = accessToken;
+                    req.session.refresh = refreshToken;
+                    const token = await new Token({token: refreshToken})
+                    await token.save()
                     const newUser = new User({id,  name: surname.toLowerCase(), lastname: lastname.toLowerCase(), date, role, email, password: hashedPassword, policy });
                     await newUser.save();
                     await emailverefy.deleteOne({ email }); // Move this line here
@@ -73,6 +117,7 @@ class Auth {
             return res.status(500).json({ error: 'Произошла ошибка при сохранении данных' });
         }
     }
+
 
     async emailVerify(req, res) {
         const { email } = req.body;
