@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const Auth = require('./routes/AuthOnServer')
 const passport = require('./routes/passport');
+const passportLogin = require('./routes/passportSignIn');
 const bcrypt = require("bcrypt"); // Импортируйте passport.js
 
 
@@ -48,12 +49,20 @@ router.post('/appendData',[body('date').isLength({ min: 8 }).withMessage('Дат
 
 router.post('/verefyCodeOnEmail', Auth.verefyCodeOnEmail)
 
-router.get('/google', passport.authenticate("google", { scope: ["profile", "email"] }));
+    router.get('/google', passport.authenticate("google", { scope: ["profile", "email"] }));
 
-router.get('/auth/google/callback/', passport.authenticate ('google', {
-    successRedirect: `${process.env.BASE_URL}more`, // Перенаправление на успешную страницу
-    failureRedirect: `${process.env.BASE_URL}login?error=1`, // Перенаправление в случае неудачи
-}))
+    router.get('/auth/google/callback/', passport.authenticate ('google', {
+        successRedirect: `${process.env.BASE_URL}more`, // Перенаправление на успешную страницу
+        failureRedirect: `${process.env.BASE_URL}login?error=1`, // Перенаправление в случае неудачи
+    }))
+
+router.get('/loginGoogle', passport.authenticate("loginGoogle", { scope: ["profile", "email"] }));
+
+router.get('/auth/itHunt/login', passport.authenticate ('loginGoogle', {
+    successRedirect: `${process.env.BASE_URL}myProfile`,
+    failureRedirect: `${process.env.BASE_URL}login?error=1`,
+}));
+
 
 
 module.exports = router
