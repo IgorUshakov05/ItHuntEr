@@ -31,6 +31,9 @@ router.post('/signup', [
     }),
 ], Auth.registration)
 
+
+
+
 router.post('/verefyEmail', [
     body('email').isEmail().withMessage('Введите корректный email')],
     Auth.emailVerify)
@@ -60,7 +63,7 @@ router.get('/loginGoogle', passport.authenticate("loginGoogle", { scope: ["profi
 
 router.get('/auth/itHunt/login', passport.authenticate ('loginGoogle', {
     successRedirect: `${process.env.BASE_URL}myProfile`,
-    failureRedirect: `${process.env.BASE_URL}login?error=1`,
+    failureRedirect: `${process.env.BASE_URL}login?error=2`,
 }));
 
 

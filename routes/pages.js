@@ -7,6 +7,7 @@ const tokenModel = require("../models/refreshTokens");
 const router = express.Router();
 router.get('/', (req, res) => {
     const userData = header(req.session)
+    console.log(userData)
     res.render('index', userData);
 });
 router.get('/myProfile', isLoggedIn,(req,res) => {

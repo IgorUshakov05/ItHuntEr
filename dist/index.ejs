@@ -137,6 +137,86 @@
                     <li>JavaSript</li>
                 </ul>
             </div>
+            <div class="vakansia">
+                <a href="">
+                    <div class="top">
+                        <h3 class="titleV">FrontEnd Разработчик</h3>
+                        <h3 class="price">200 000₽</h3>
+                    </div>
+                </a>
+                <div class="expiriens">
+                    <p class="expirienstext">Опыт работы: 3 года</p>
+                </div>
+                <ul class="stack">
+                    <li>HTML</li>
+                    <li>JQuery</li>
+                    <li>CSS</li>
+                    <li>GIT</li>
+                    <li>SCSS</li>
+                    <li>Vue/VueRouter/Vue-cli</li>
+                    <li>JavaSript</li>
+                </ul>
+            </div>
+            <div class="vakansia">
+                <a href="">
+                    <div class="top">
+                        <h3 class="titleV">FrontEnd Разработчик</h3>
+                        <h3 class="price">200 000₽</h3>
+                    </div>
+                </a>
+                <div class="expiriens">
+                    <p class="expirienstext">Опыт работы: 3 года</p>
+                </div>
+                <ul class="stack">
+                    <li>HTML</li>
+                    <li>JQuery</li>
+                    <li>CSS</li>
+                    <li>GIT</li>
+                    <li>SCSS</li>
+                    <li>Vue/VueRouter/Vue-cli</li>
+                    <li>JavaSript</li>
+                </ul>
+            </div>
+            <div class="vakansia">
+                <a href="">
+                    <div class="top">
+                        <h3 class="titleV">FrontEnd Разработчик</h3>
+                        <h3 class="price">200 000₽</h3>
+                    </div>
+                </a>
+                <div class="expiriens">
+                    <p class="expirienstext">Опыт работы: 3 года</p>
+                </div>
+                <ul class="stack">
+                    <li>HTML</li>
+                    <li>JQuery</li>
+                    <li>CSS</li>
+                    <li>GIT</li>
+                    <li>SCSS</li>
+                    <li>Vue/VueRouter/Vue-cli</li>
+                    <li>JavaSript</li>
+                </ul>
+            </div>
+            <div class="vakansia">
+                <a href="">
+                    <div class="top">
+                        <h3 class="titleV">FrontEnd Разработчик</h3>
+                        <h3 class="price">200 000₽</h3>
+                    </div>
+                </a>
+                <div class="expiriens">
+                    <p class="expirienstext">Опыт работы: 3 года</p>
+                </div>
+                <ul class="stack">
+                    <li>HTML</li>
+                    <li>JQuery</li>
+                    <li>CSS</li>
+                    <li>GIT</li>
+                    <li>SCSS</li>
+                    <li>Vue/VueRouter/Vue-cli</li>
+                    <li>JavaSript</li>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="shtat">
@@ -262,6 +342,7 @@
             <p>Самые успешные люди сталкиваются с неудачами на своем пути, но они не прекращают стремиться к своим целям. Будьте настойчивыми, учись на своих ошибках и продолжай двигаться вперед. В конечном итоге, твоя преданность и упорство приведут к желаемым результатам.</p>
         </div>
         </div>
+        <% if(username.isLoggedIn) {%>
         <a class="profile" href="/login">
             <button class="join lazzy">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -271,6 +352,9 @@
                 Присоединиться
             </button>
         </a>
+        <%}else {%>
+            <p class="thanks">У вас все получится!</p>
+<%}%>
     </div>
     <div class="quetion">
             <h2>Часто задаваемые вопросы</h2>
@@ -322,5 +406,6 @@
 
 <%- include('./footer.ejs') %>
 <script src="/js/header.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 </html>

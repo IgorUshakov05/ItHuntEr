@@ -52,7 +52,7 @@ class Auth {
                 }
 
                 if (isMatch) {
-                    const accessToken = jwt.sign({ id:user.id, role:user.role }, process.env.ACCESS, { expiresIn: '1m' });
+                    const accessToken = jwt.sign({ id:user.id, role:user.role }, process.env.ACCESS, { expiresIn: '30m' });
                     const refreshToken = jwt.sign({ id:user.id, email:user.email, password: user.password, ip: clientIP }, process.env.REFRESH, {
                         expiresIn: '30d',
                     });
@@ -68,6 +68,7 @@ class Auth {
 
         }
     }
+
     async registration(req, res) {
         const clientIP = req.ip;
         const errors = validationResult(req);
@@ -94,7 +95,7 @@ class Auth {
 
                     // Создание JWT-токенов для access и refresh
 
-                    const accessToken = jwt.sign({ id, role: req.body.role }, process.env.ACCESS, { expiresIn: '1m' });
+                    const accessToken = jwt.sign({ id, role: req.body.role }, process.env.ACCESS, { expiresIn: '30d' });
                     const refreshToken = jwt.sign({ id, email, password: hashedPassword, ip: clientIP }, process.env.REFRESH, {
                         expiresIn: '30d',
                     });

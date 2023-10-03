@@ -46,7 +46,28 @@ const registrationSchema = new Schema({
         type:String,
         required: false,
         default: null
+    },
+    premium: {
+        type:Boolean,
+        required: false,
+        default: false
+    },
+    specialls: {
+        type:String,
+        required: false,
+        default: "Не определено"
+    },
+    skills: {
+        type: Array,
+        required: false
+    },
+
+    description: {
+        type: String,
+        required: false,
+        default: "Пусто"
     }
+
 });
 
 const User = mongoose.model('User', registrationSchema);

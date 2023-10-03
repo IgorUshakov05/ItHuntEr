@@ -8,7 +8,14 @@ const errorValue = urlParams.get('error');
 if (errorValue === '1') {
     document.getElementById('findAcc').style.display = "block"
     document.getElementById('quest').style.marginTop = "15px"
-} else {
+}
+else if(errorValue === '2') {
+    document.getElementById('findAcc').innerText = 'Аккаунт не найден'
+    document.getElementById('findAcc').style.display = "block"
+    document.getElementById('quest').style.marginTop = "15px"
+}
+    else{
+
     document.getElementById('findAcc').style.display = "none"
 }
 

@@ -499,6 +499,9 @@ background: #009718;
     justify-content: space-between;
     align-items: center;
 }
+.top:hover  > * {
+    color: #5412E0;
+}
 .titleV {
     color: #000;
     text-align: justify;
@@ -1427,4 +1430,18 @@ p.error {
     .exampleInput > p {
         font-size: 14px;
     }
+}
+
+.thanks {
+    margin-top: 10px;
+    color: #5412E0;
+    font-weight: 500;
+}
+
+.list > li > img {
+    cursor: pointer;
+}
+
+.list > li > h2 {
+    cursor: pointer;
 }
