@@ -1462,13 +1462,14 @@ text-decoration-style: solid;
 }
 .personalInfo {
     padding: 20px;
+    background: #FFF;
+   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
 .personalInfo,.MoreInfo {
-    width: 35%;
+    width: 33%;
     box-sizing: border-box;
     height: 100%;
     border-radius: 7px;
-    background-color: red;
 }
 .MoreInfo {
     background-color: black;
@@ -1511,6 +1512,86 @@ letter-spacing: 0.16px;
 }
 .activeS > p {
     margin-left: 5px;
+}
+.age {
+    font-family: Ubuntu;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 127.9%; /* 11.919px */
+    letter-spacing: 0.093px;
+}
+.descriptionInfo{
+    margin-top: 10px;
+}
+.city {
+    width: fit-content;
+    display: flex;
+    margin-top: 7px;
+    align-items: center;
+    justify-content: space-around;
+}
+.city > p {
+    margin-left: 6px;
+    text-align: justify;
+    font-family: Raleway;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 141.4%; /* 18.382px */
+    letter-spacing: -0.065px;
+}
+.aboutMe {
+    font-family: Raleway;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.15px;
+}
+
+.descript {
+    margin-top: 5px;
+    font-family: Raleway;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 127.9%; /* 15.348px */
+    letter-spacing: 0.12px;
+}
+.lastInfo {
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+.lastText {
+    font-family: Raleway;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.15px;
+}
+.contacts,.portfolio {
+    width: 45%;
+}
+.listInfoBottom {
+    margin-top: 7px;
+}
+.listInfoBottom > li {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-top: 10px;
+}
+.listInfoBottom > li > a {
+    font-family: Ubuntu;
+    font-size: 13px;
+    font-style: normal;
+    margin-left: 7px;
+    font-weight: 400;
+    line-height: 127.9%; /* 15.348px */
+    letter-spacing: 0.12px;
 }
 @media (max-width:1000px) {
     .personalInfo, .MoreInfo {

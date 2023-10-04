@@ -2,8 +2,6 @@ const jwt = require('jsonwebtoken');
 const tokenModel = require('./models/refreshTokens'); // Путь к модели токена
 
 const isLoggedIn = async (req, res, next) => {
-    const clientIP = req.ip;
-    console.log('IP: ', clientIP);
     console.log(typeof req.session.access);
 
     // Проверяем, существуют ли токены доступа и обновления в сессии
@@ -31,7 +29,7 @@ const isLoggedIn = async (req, res, next) => {
                 //Из базы данных
                 const decodedRefreshServer = await jwt.verify(foundToken.token, process.env.REFRESH);
                 console.log(decodedRefreshServer)
-                if (foundToken.ip !== clientIP && foundToken.token !== req.session.refresh) {
+                if (foundToken.token !== req.session.refresh) {
                     console.log("Токен не найден в базе данных");
                     req.session.refresh = null;
                     req.session.access = null;

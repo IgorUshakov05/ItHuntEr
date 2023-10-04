@@ -12,7 +12,13 @@ router.get('/', (req, res) => {
 });
 router.get('/myProfile', isLoggedIn,(req,res) => {
     const userData = header(req.session)
-    res.render('myprofile', userData)
+    if (userData.isLoggedIn) {
+        res.render('myprofile',userData)
+
+    }else {
+        res.redirect('/login')
+    }
+
 })
 
 router.get('/more', (req,res) => {
@@ -54,7 +60,12 @@ router.get('/vacancies', (req, res) => {
 
 router.get('/chats', isLoggedIn,(req, res) => {
     const userData = header(req.session)
-    res.render('chats', userData);
+    if (userData.isLoggedIn) {
+        res.render('chats',userData)
+
+    }else {
+        res.redirect('/login')
+    }
 });
 
 router.get('/fast-work', (req, res) => {
