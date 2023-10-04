@@ -12,6 +12,31 @@
     <title>Мой профиль</title>
 </head>
 <body>
-
+    <%- include('./header.ejs', { isLoggedIn, username}) %> 
+<main class="main">
+    <div class="twoBlocks">
+        <div class="personalInfo">
+            <div class="topInfo">
+                <div class="photoBlock">
+                    <img width="120" src="./assets/pictures/Author.png" alt="Фото профиля">
+                </div>
+                <div class="textInfoAbout">
+                    <h1 class="username">Ушаков Ярослав</h1>
+                    <div class="activeS">
+                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="3.76701" cy="4.17302" r="3.49455" fill="#00AE1C"/>
+                            </svg>
+                            
+                        <p>Мне нужна работа</p>
+                    </div>
+                    <h2 class="userole">Веб-дизайнер</h2>
+                    <h3>12 лет</h3>
+                </div>
+            </div>
+        </div>
+        <div class="MoreInfo"></div>
+    </div>
+</main>
+<%-include('./footer') %>
 </body>
 </html>

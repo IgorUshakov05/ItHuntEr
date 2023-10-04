@@ -55,15 +55,15 @@ router.post('/verefyCodeOnEmail', Auth.verefyCodeOnEmail)
     router.get('/google', passport.authenticate("google", { scope: ["profile", "email"] }));
 
     router.get('/auth/google/callback/', passport.authenticate ('google', {
-        successRedirect: `${process.env.BASE_URL}more`, // Перенаправление на успешную страницу
-        failureRedirect: `${process.env.BASE_URL}login?error=1`, // Перенаправление в случае неудачи
+        successRedirect: `${process.env.BASE_URl}/more`, // Перенаправление на успешную страницу
+        failureRedirect: `${process.env.BASE_URl}/login?error=1`, // Перенаправление в случае неудачи
     }))
 
 router.get('/loginGoogle', passport.authenticate("loginGoogle", { scope: ["profile", "email"] }));
-
+ 
 router.get('/auth/itHunt/login', passport.authenticate ('loginGoogle', {
-    successRedirect: `${process.env.BASE_URL}myProfile`,
-    failureRedirect: `${process.env.BASE_URL}login?error=2`,
+    successRedirect: `${process.env.BASE_URl}/myProfile`,
+    failureRedirect: `${process.env.BASE_URl}/login?error=2`,
 }));
 
 

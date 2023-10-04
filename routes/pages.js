@@ -11,7 +11,8 @@ router.get('/', (req, res) => {
     res.render('index', userData);
 });
 router.get('/myProfile', isLoggedIn,(req,res) => {
-    res.render('myprofile')
+    const userData = header(req.session)
+    res.render('myprofile', userData)
 })
 
 router.get('/more', (req,res) => {
