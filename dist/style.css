@@ -1467,6 +1467,7 @@ text-decoration-style: solid;
 }
 .personalInfo,.MoreInfo {
     width: 33%;
+    position: relative;
     box-sizing: border-box;
     height: 100%;
     border-radius: 7px;
@@ -1522,7 +1523,7 @@ letter-spacing: 0.16px;
     letter-spacing: 0.093px;
 }
 .descriptionInfo{
-    margin-top: 10px;
+    margin-top: 12px;
 }
 .city {
     width: fit-content;
@@ -1543,7 +1544,7 @@ letter-spacing: 0.16px;
 }
 .aboutMe {
     font-family: Raleway;
-    font-size: 15px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -1551,9 +1552,9 @@ letter-spacing: 0.16px;
 }
 
 .descript {
-    margin-top: 5px;
+    margin-top: 6px;
     font-family: Raleway;
-    font-size: 13px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 300;
     line-height: 127.9%; /* 15.348px */
@@ -1583,6 +1584,22 @@ letter-spacing: 0.16px;
     align-items: center;
     justify-content: start;
     margin-top: 10px;
+}
+.settingsOpen {
+    width: 18px;
+    height: 14px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    right: 10px;
+}
+.settingsOpen > div {
+    width: 100%;
+    height: 1px;
+    background: black;
 }
 .listInfoBottom > li > a {
     font-family: Ubuntu;
