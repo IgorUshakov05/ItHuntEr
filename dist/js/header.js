@@ -4,12 +4,21 @@ $(document).ready(function() {
     const $main = $('main');
     const $openClose = $('.open-close');
 
-    $burgerButton.on("click", function() {
+    $burgerButton.on("click", function(event) {
+        event.stopPropagation();
         $mobileMenu.toggle(); // Переключение видимости мобильного меню
+        if ($mobileMenu.is(':visible')) {
+            $('body').css('overflow-y', 'hidden'); // Заблокировать вертикальную прокрутку
+        } else {
+            $('body').css('overflow-y', 'auto'); // Восстановить вертикальную прокрутку
+        }
         $burgerButton.toggleClass("rotate-burger"); // Добавление/удаление класса для поворота иконки бургера
     });
+
+
     $main.on('click touchstart', function () {
         $mobileMenu.css('display', 'none')
+        $('body').css('overflow-y', 'auto');
         $burgerButton.removeClass('rotate-burger')
     })
     $('.open-close').on('click', function() {

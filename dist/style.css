@@ -118,6 +118,8 @@ header {
     align-items: center;
     justify-content: center;
 }
+
+
 ._pages {
     width: 470px;
     margin: auto;
@@ -414,6 +416,8 @@ input#true {
     display: flex;
     width: 100%;
     z-index:1;
+    height: fit-content;
+    overflow-x: hidden;
     overflow-y: hidden;
 }
 
@@ -790,6 +794,9 @@ display: flex;
 }
 .text > p, .request {
     padding-left: 25px;
+}
+.text > p {
+    margin-top: 24px;
 }
 .request {
     display: none;
@@ -1331,7 +1338,8 @@ p.error {
 
     ._pages {
         width: 470px;
-        margin: 20px auto 10px auto;
+        margin: auto;
+        user-select: none;
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -1341,6 +1349,12 @@ p.error {
     ._pages > a > h2 {
         font-size: 18px;
         font-weight: 300;
+    }
+    .mobile >  ._pages > a {
+        margin-top: 25px ;
+    }
+    .mobile > ._pages > div {
+        margin-bottom: 20px;
     }
     .burger {
        display: flex;
@@ -1383,7 +1397,7 @@ p.error {
     .profile {
         width: 100%;
         text-align: center;
-        margin: 0 auto;
+        margin: 20px auto;
     }
     .allBeBack {
         flex-direction: column;
@@ -1466,17 +1480,20 @@ text-decoration-style: solid;
    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
 .personalInfo,.MoreInfo {
-    width: 33%;
+    width: 34%;
     position: relative;
     box-sizing: border-box;
     height: 100%;
     border-radius: 7px;
 }
+
 .MoreInfo {
     background-color: black;
     width: 61%;
 }
-
+.listInfoBottom > li > a:hover{
+    color:var(--indexColor);
+}
 .topInfo {
     width: 100%;
     display: flex;
@@ -1490,11 +1507,11 @@ text-decoration-style: solid;
 }
 .username {
 font-family: Raleway;
-font-size: 25px;
+font-size: 20px;
 font-style: normal;
 font-weight: 300;
 line-height: normal;
-letter-spacing: 0.25px;
+letter-spacing: 0.15px;
 }
 
 .userole {
@@ -1586,13 +1603,13 @@ letter-spacing: 0.16px;
     margin-top: 10px;
 }
 .settingsOpen {
-    width: 18px;
+    width: 20px;
     height: 14px;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: end;
     position: absolute;
     right: 10px;
 }
@@ -1600,6 +1617,9 @@ letter-spacing: 0.16px;
     width: 100%;
     height: 1px;
     background: black;
+}
+.settingsOpen > div:nth-child(2) {
+    width: 100%;
 }
 .listInfoBottom > li > a {
     font-family: Ubuntu;
@@ -1610,11 +1630,49 @@ letter-spacing: 0.16px;
     line-height: 127.9%; /* 15.348px */
     letter-spacing: 0.12px;
 }
-@media (max-width:1000px) {
+
+.settingsMobile {
+    color: #5412E0;
+    font-family: Raleway;
+    font-size: 15px;
+    font-style: normal;
+    margin-top: 20px;
+    font-weight: 300;
+    line-height: 141.4%; /* 17.249px */
+    letter-spacing: 0.061px;
+    border-radius: 4px;
+    border: 0.5px solid #5412E0;
+    width: 100%;
+    height: 40px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select:none;
+}
+.settingsMobile:hover {
+    border: 0.5px solid rgba(84, 18, 224, 0.89);
+}
+
+@media (max-width:1100px) {
     .personalInfo, .MoreInfo {
-        width: 100%; 
-    } 
+        width: 100%;
+        padding: 0;
+    }
+    .settingsOpen {
+        display:none;
+    }
+    .textInfoAbout {
+        margin-left: 13px;
+    }
+    .settingsMobile {
+        display: flex;
+    }
+
     .twoBlocks {
         display: block;
+    }
+    .personalInfo {
+        box-shadow: none;
     }
 }
