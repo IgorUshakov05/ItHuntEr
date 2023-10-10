@@ -15,6 +15,7 @@
     <%- include('./header.ejs', { isLoggedIn, username}) %> 
 <main class="main">
     <div class="twoBlocks">
+
         <div class="personalInfo">
             <div class="settingsOpen">
                 <div></div>
@@ -131,14 +132,87 @@
                 </div>
             </div>
             </div>
+            <div class="personalInfoForSettings">
+                <div class="topInfo">
+                    <div class="photoBlock">
+
+                        <img width="120" src="./assets/pictures/Author.png" alt="Фото профиля">
+                    </div>
+                    <div class="textInfoAbout">
+                        <div style="margin-top: 10px" class="topInfoChild">
+                            <h1 class="username setPhoto">Установите фотографию</h1>
+                        </div>
+                        <div class="setInputPhoto">
+                                <input class="setPhotoInput" type="file" name="image" accept="image/*">
+                            <div class="svgShka">
+                                <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.1547 9.70492L13.2434 4.63234C13.4549 4.11871 13.0773 3.55481 12.5218 3.55481H4.06456C3.74833 3.55481 3.46335 3.74565 3.34295 4.03807L1.25424 9.11065C1.04274 9.62428 1.42038 10.1882 1.97585 10.1882H10.4331C10.7493 10.1882 11.0343 9.99734 11.1547 9.70492Z" stroke="white" stroke-width="0.613169"/>
+                                    <path d="M1.2002 7.06666V1.21368C1.2002 0.782683 1.54959 0.433289 1.98059 0.433289H3.83947C4.13506 0.433289 4.40528 0.600295 4.53748 0.864681L4.88648 1.56269C5.01867 1.82707 5.2889 1.99408 5.58449 1.99408H10.1748C10.6058 1.99408 10.9552 2.34348 10.9552 2.77448V2.77448" stroke="white" stroke-width="0.613169" stroke-linecap="round"/>
+                                </svg>
+
+                            </div>
+                            <p class="setInputPhotoText">Загрузить изображение</p>
+                        </div>
+                        <div class="activeS setMyPhotoParent">
+                            <p class="IHeed setMyPhoto">Разрешение фотографии должно быть 1:1</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="metaData">
+                    <div class="metaRow">
+                        <div class="Rows">
+                            <div class="inputData">
+                                <label for="name">Имя</label>
+                                <input class="inputDatas" type="text" name="name" id="name">
+                            </div>
+                            <div class="inputData">
+                                <label for="surname">Фамилия</label>
+                                <input class="inputDatas" type="text" name="surname" id="surname">
+                            </div>
+                        </div>
+                        <div class="Rows">
+                            <div class="inputData">
+                                <label for="birthDay">Дата рождения</label>
+                                <input class="inputDatas" type="date" name="birthDay" id="birthDay">
+                            </div>
+                            <div class="inputData">
+                                <label for="status">Статус</label>
+                                <select id="status" name="status" class="inputDatas">
+                                    <option value="Search">Ищу работу</option>
+                                    <option value="Open" selected>Открыт к предложениям</option>
+                                    <option value="noSearch">Не ищу работу</option>
+                                </select>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="specialAndDescription">
+                        <div class="inputData">
+                            <label for="specialist">Специализация</label>
+                            <input class="inputDatas" type="text" name="specialist" id="specialist">
+                        </div>
+                        <div class="inputData textAreaData">
+                            <label for="description">Специализация</label>
+                            <textarea maxlength="1111" class="inputDatas textAreaInfo" name="description" id="description"></textarea>
+                            <p class="scoreSymbol">0/1111</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul class="settingsMenu">
+                <li><p>Редактировать профиль</p></li>
+                <li><a>Удалить аккаунт</a></li>
+                <li><a href="/login">Выйти из аккаунта</a></li>
+            </ul>
+
             <div class="settingsMobile">
                 <p>Настройки профиля</p>
             </div>
-
         </div>
         <div class="MoreInfo"></div>
     </div>
 </main>
     <script src="/js/header.js"></script>
+    <script src="/js/editProfileScript.js"></script>
 </body>
 </html>

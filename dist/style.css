@@ -749,6 +749,10 @@ display: flex;
     .element > h3 {
         white-space: normal;
     }
+    .request {
+        margin-top: 20px;
+
+    }
 }
 
 .open-close {
@@ -1337,7 +1341,7 @@ p.error {
     }
 
     ._pages {
-        width: 470px;
+        width: fit-content;
         margin: auto;
         user-select: none;
         display: flex;
@@ -1528,9 +1532,10 @@ letter-spacing: 0.16px;
     box-sizing: border-box;
     align-items: center;
 }
-.activeS > p {
+.IHeed {
     margin-left: 5px;
 }
+
 .age {
     font-family: Ubuntu;
     font-size: 14px;
@@ -1654,6 +1659,131 @@ letter-spacing: 0.16px;
     border: 0.5px solid rgba(84, 18, 224, 0.89);
 }
 
+.settingsMenu{
+    width: 100%;
+    text-align: center;
+}
+.settingsMenu > li {
+    cursor: pointer;
+    margin-top: 20px;
+    user-select: none;
+    transition: 0.1s;
+}
+
+.settingsMenu > li > a:first-child {
+    font-size: 15px;
+}
+
+
+.settingsMenu > li:hover, .settingsMenu > li:active {
+    color: rgba(84, 18, 224);
+}
+
+.setPhotoInput {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+}
+.metaData {
+    width: 100%;
+}
+.inputDatas {
+    border: none;
+    outline: none;
+    resize: none;
+    border-radius: 4px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    height: 100%;
+    background: white;
+    width: 100%;
+    /*text*/
+    color: #000;
+    text-align: justify;
+    font-family: Ubuntu;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 141.4%; /* 18.382px */
+    letter-spacing: -0.065px;
+}
+.Rows {
+    width: 48%;
+}
+.inputData > label {
+    position: absolute;
+    color: #B7B7B7;
+    text-align: justify;
+    font-family: Raleway;
+    font-size: 10px;
+    padding: 0 5px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 141.4%; /* 14.14px */
+    letter-spacing: -0.05px;
+    top: -6px;
+    left: 12px;
+    background: white;
+}
+.metaRow {
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+}
+.settingsMenu > li > a:hover, .settingsMenu > li > a:active {
+    color: red;
+}
+.setPhoto {
+    white-space: nowrap;
+    font-size: 15px;
+}
+.setMyPhotoParent {
+    margin-bottom: 10px;
+}
+.setInputPhoto {
+    width: fit-content;
+    height: 30px;
+    position: relative;
+    border-radius: 4.905px;
+    background: #5412E0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    text-align: right;
+    align-items: center;
+}
+.setInputPhotoText {
+    color: #FFF;
+    text-align: center;
+    font-family: Raleway;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.095px;
+}
+.svgShka {
+    margin-right: 10px;
+}
+.setMyPhoto {
+    margin: 0;
+    font-family: Raleway;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 111.9%; /* 14.547px */
+    letter-spacing: -0.065px;
+}
+.inputData {
+    position: relative;
+    height: 38px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin-top: 15px;
+    border: 0.5px solid #B7B7B7;
+}
+
+
 @media (max-width:1100px) {
     .personalInfo, .MoreInfo {
         width: 100%;
@@ -1675,4 +1805,36 @@ letter-spacing: 0.16px;
     .personalInfo {
         box-shadow: none;
     }
+
+}
+
+
+@media (max-width:600px) {
+    .metaRow {
+        flex-direction: column;
+    }
+
+    .Rows {
+        width: 100%;
+    }
+
+    .inputData {
+        height: 45px;
+        margin-top: 20px;
+    }
+}
+.scoreSymbol {
+    position: absolute;
+bottom: 0;
+    background: white;
+    right: 10px;
+    font-size: 12px;
+}
+.textAreaData {
+    height: fit-content;
+}
+
+.textAreaInfo {
+    min-height: 100px;
+    padding:10px;
 }

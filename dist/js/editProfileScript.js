@@ -1,0 +1,3 @@
+$('.settingsMobile').on('click', function () {
+
+})
