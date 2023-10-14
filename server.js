@@ -9,6 +9,7 @@ require('dotenv').config();
 const routes = require("./routes/pages");
 const isLoggedIn = require('./AccessForAuth')
 const routesAuth = require("./AuthRequest");
+const findCity = require("./routes/findCity");
 
 app.set('view engine', 'ejs');
 app.set('trust proxy', true);
@@ -50,7 +51,7 @@ app.use(isLoggedIn)
 
 app.use(routes);
 app.use(routesAuth);
-
+app.get('/getCity/:value', findCity)
 
 start = (PORT) => {
     try {
