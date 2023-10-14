@@ -32,6 +32,25 @@ const registrationSchema = new Schema({
         required: true,
         unique: true // Оставили ограничение уникальности для поля email
     },
+    country: {
+        type: String,
+        required: true,
+        unique: false,
+        default:"Не определено"
+    },
+    Region: {
+        type: String,
+        required: true,
+        unique: false,
+        default:"Не определено"
+
+    },
+    City: {
+        type: String,
+        required: true,
+        unique: false,
+        default:"Не определено"
+    },
     password: {
         type: String,
         required: false,
